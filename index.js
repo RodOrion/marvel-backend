@@ -16,25 +16,27 @@ const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/marvel");
 
 /** routes **/
-const userRoutes = require("./routes/user")
-app.use(userRoutes)
+const userRoutes = require("./routes/user");
+app.use(userRoutes);
 
-const comicsRoutes = require("./routes/comics")
-app.use(comicsRoutes)
+const comicsRoutes = require("./routes/comics");
+app.use(comicsRoutes);
 
-const charactersRoutes = require("./routes/characters")
-app.use(charactersRoutes)
+const charactersRoutes = require("./routes/characters");
+app.use(charactersRoutes);
+
+const favorisRoutes = require("./routes/favoris");
+app.use(favorisRoutes)
 
 app.get("/", (req, res) => {
   // route en GET dont le chemion est /
   res.json({ message: "Hi welcome on Marvel's API" }); // réponse du serveur : {message : "Hi"}
 });
 
-
 app.all(/.*/, function (req, res) {
   res.json({ message: "Page not found" });
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Server started on port', process.env.PORT || 3000);
+  console.log("Server started on port", process.env.PORT || 3000);
 });

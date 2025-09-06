@@ -6,6 +6,7 @@ const User = mongoose.model("User", {
     username: String,
     avatar: Object, // nous verrons plus tard comment uploader une image
   },
+  favoris: [String],
   newsletter: Boolean,
   token: String,
   hash: String,
