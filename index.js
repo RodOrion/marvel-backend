@@ -13,7 +13,7 @@ const apiKey = process.env.API_KEY;
 
 /** BDD **/
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/marvel");
+mongoose.connect(process.env.MONGODB_URI);
 
 /** routes **/
 const userRoutes = require("./routes/user");
