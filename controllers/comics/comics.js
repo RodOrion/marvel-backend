@@ -37,6 +37,25 @@ const readComics = async (req, res) => {
   }
 }
 
+const getComics = async(req, res) => {
+  try {
+    const name = req.query.name || "";
+
+    // Appel à l'API
+    const response = await axios.get(`https://lereacteur-marvel-api.herokuapp.com/comics?&apiKey=${apiKey}&limit=10&name=${name}`);
+    // Tableau des noms
+    const comicName = response.data.results.map( (comic) => {
+        return {name:comic.title, id:comic._id}
+    })
+    //console.log(comicName)
+    return res.status(200).json(comicName)
+
+  } catch (error) {
+    console.log("error API :", error.message);
+    return res.status(500).json({ error: 'Erreur lors de la récupération des comics', message:error.message })
+  }
+}
+
 const getComic = async (req, res) => {
     try {
         const comicID = req.params.comicId;        
@@ -51,4 +70,4 @@ const getComic = async (req, res) => {
     }
 }
 
-module.exports = {readComics, getComic}
+module.exports = {readComics, getComics, getComic}

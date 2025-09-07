@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 router.use(express.json());
-const { readComics, getComic } = require("../controllers/comics/comics.js");
+const { readComics, getComics, getComic } = require("../controllers/comics/comics.js");
 
 const axios = require("axios"); // client pour les queries
 const apiKey = process.env.API_KEY;
 
 router.get("/comics/", readComics);
-
+/// Autocomplétion
+router.get("/comics/completion", getComics);
 router.get("/comic/:comicId", getComic)
 
 // router.get("/comics_character/:characterID", async (req, res) => {

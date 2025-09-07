@@ -16,7 +16,7 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
 /** routes **/
-const userRoutes = require("./routes/user");
+const userRoutes = require("./routes/user")
 app.use(userRoutes);
 
 const comicsRoutes = require("./routes/comics");

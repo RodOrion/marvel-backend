@@ -7,11 +7,11 @@ const {createFavoris, deleteFavoris, getFavoris} = require("../controllers/favor
 /** Models **/
 const Favoris = require("../models/Favoris")
 
-// Ajouter un favori
-router.post('/favoris/:characterID', isAuthenticated, createFavoris);
+// Ajouter un favoris
+router.post('/favoris/:type/:marvelID', isAuthenticated, createFavoris);
 
-// Retirer un favori
-router.delete('/favoris/:characterID', isAuthenticated, deleteFavoris);
+// Retirer un favoris
+router.delete('/favoris/:marvelID', isAuthenticated, deleteFavoris);
 
 // Récupérer les favoris
 router.get('/favoris', isAuthenticated, getFavoris);
