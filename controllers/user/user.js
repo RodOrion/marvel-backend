@@ -18,6 +18,11 @@ const convertToBase64 = require("../../utils/convertToBase64");
 
 
 const signup = async (req, res) => {
+  console.log('=== CLOUDINARY DEBUG ===');
+  console.log('CLOUD_NAME:', process.env.CLOUDINARY_CLOUD_NAME);
+  console.log('API_KEY:', process.env.CLOUDINARY_API_KEY);
+  console.log('API_SECRET present:', !!process.env.CLOUDINARY_API_SECRET);
+  console.log('========================');
   try {
     const { username, email, password } = req.body;
     if (!username || !password || !email) {

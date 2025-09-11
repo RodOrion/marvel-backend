@@ -16,7 +16,7 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_URI);
 
 /** routes **/
-const userRoutes = require("./routes/user")
+const userRoutes = require("./routes/user");
 app.use(userRoutes);
 
 const comicsRoutes = require("./routes/comics");
@@ -26,7 +26,7 @@ const charactersRoutes = require("./routes/characters");
 app.use(charactersRoutes);
 
 const favorisRoutes = require("./routes/favoris");
-app.use(favorisRoutes)
+app.use(favorisRoutes);
 
 app.get("/", (req, res) => {
   // route en GET dont le chemion est /
