@@ -21,7 +21,9 @@ const signup = async (req, res) => {
   console.log('=== CLOUDINARY DEBUG ===');
   console.log('CLOUD_NAME:', process.env.CLOUDINARY_CLOUD_NAME);
   console.log('API_KEY:', process.env.CLOUDINARY_API_KEY);
-  console.log('API_SECRET present:', !!process.env.CLOUDINARY_API_SECRET);
+  console.log('API_SECRET present:', process.env.CLOUDINARY_API_SECRET);
+  console.log('date now : ', Date.now());
+  
   console.log('========================');
   try {
     const { username, email, password } = req.body;
@@ -75,7 +77,10 @@ const signup = async (req, res) => {
     });
 
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).json({ 
+      error: error,
+      message: error.message 
+    });
   }
 }
 
